@@ -101,7 +101,7 @@ Microsoft Fabric requires a Personal Access Token (PAT) to authenticate with Git
 1. In the left navigation pane, click **Workspaces**
 2. Click **New workspace** or the **+ New** button
 3. On the workspace creation dialog:
-   - **Name:** Enter `WS-fabricUser-xx` (replace `xx` with your allocated number, e.g., `WS-fabricUser-01`)
+   - **Name:** Enter `WS-fabricUser-xx-dev` (replace `xx` with your allocated number, e.g., `WS-fabricUser-01-dev`)
    - **Description:** (Optional) Enter a description such as `Fabric workspace with Git integration`
    - **Capacity:** Ensure a Fabric capacity is selected (this is where your workspace resources will be billed)
    - Click **Save**

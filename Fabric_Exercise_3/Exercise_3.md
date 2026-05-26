@@ -120,9 +120,9 @@ jobs:
       
       - name: Fabric CLI Login with Service Principal
         run: |
-          fabric login --client-id '${{ secrets.FABRIC_CLIENT_ID }}' \
-                       --client-secret '${{ secrets.FABRIC_CLIENT_SECRET }}' \
-                       --tenant-id '${{ secrets.FABRIC_TENANT_ID }}'
+          fab auth login --u '${{ secrets.FABRIC_CLIENT_ID }}' \
+                       --p '${{ secrets.FABRIC_CLIENT_SECRET }}' \
+                       --tenant '${{ secrets.FABRIC_TENANT_ID }}'
       
       - name: Create Fabric Workspace
         run: |
