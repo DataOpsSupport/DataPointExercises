@@ -23,18 +23,19 @@ Follow these steps to fork and import the source repository into your own GitHub
 1. Go to [https://github.com/DataOpsSupport/GH-Git-integration-source](https://github.com/DataOpsSupport/GH-Git-integration-source) in your web browser
 2. You should see the repository page with its content and README
 
-### Step 2: Fork the Repository
-1. Click the **Fork** button in the top-right corner of the repository page
-2. On the "Create a new fork" dialog:
-   - Verify the repository name is `GH-Git-integration-source`
-   - Ensure **Copy the `main` branch only** is checked (to reduce cloning time)
-   - Verify the owner is set to your account
-   - Click **Create fork**
-3. Wait for the fork to complete. You will be automatically redirected to your forked repository at `https://github.com/[YourUsername]/GH-Git-integration-source`
+### Step 2: Import the Repository and Set It Private
+1. Open the GitHub Importer at [https://github.com/new/import](https://github.com/new/import) whilst logged in with your GitHub Account.
+2. In the **Your old repository's clone URL** field, enter `https://github.com/DataOpsSupport/GH-Git-integration-source`.
+3. In the **Owner** dropdown, select your GitHub account.
+4. In the **Name** field, enter `GH-Git-integration-source`.
+5. Under **Privacy**, choose **Private**.
+6. Click **Begin import**.
+7. Wait for the importer to finish. Refresh the page if needed until it shows the import is complete.
+8. Confirm the imported repository is available at `https://github.com/[YourUsername]/GH-Git-integration-source` and that its visibility is **Private**.
 
-   **Note:** For more information on forking repositories, see [GitHub's fork documentation](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
+   **Note:** For more information on importing repositories, see [Importing a repository with GitHub Importer](https://docs.github.com/en/migrations/importing-source-code/using-github-importer/importing-a-repository-with-github-importer).
 
-### Step 3: Verify the Fork
+### Step 3: Verify the Repository
 1. Confirm you are on your copy of the repository (URL should be `https://github.com/[YourUsername]/GH-Git-integration-source`)
 2. Verify the repository shows "forked from DataOpsSupport/GH-Git-integration-source" under the repository name
 3. Verify the `/workspace` folder exists in the repository (check in the repository file browser)
@@ -92,7 +93,7 @@ Microsoft Fabric requires a Personal Access Token (PAT) to authenticate with Git
 
 ### Step 1: Access Microsoft Fabric
 1. Navigate to [https://app.powerbi.com](https://app.powerbi.com)
-2. Sign in with your Microsoft account if prompted (see [Microsoft account documentation](https://support.microsoft.com/en-us/account-billing))
+2. Sign in with your Microsoft account if prompted (see [Microsoft account documentation](https://support.microsoft.com/en-us/account-billing)). Login details will be provided by the instructor.
 3. Switch to Microsoft Fabric (you should see the Fabric icon in the left navigation, or you may need to enable it from the Power BI admin panel)
 
    **Licensing Note:** You must have a Microsoft Fabric capacity or a trial capacity to use Fabric. See [Microsoft Fabric licensing](https://learn.microsoft.com/en-us/fabric/enterprise/licenses) for more information
@@ -103,9 +104,10 @@ Microsoft Fabric requires a Personal Access Token (PAT) to authenticate with Git
 3. On the workspace creation dialog:
    - **Name:** Enter `WS-fabricUser-xx-dev` (replace `xx` with your allocated number, e.g., `WS-fabricUser-01-dev`)
    - **Description:** (Optional) Enter a description such as `Fabric workspace with Git integration`
-   - **Capacity:** Ensure a Fabric capacity is selected (this is where your workspace resources will be billed)
-   - Click **Save**
-
+   - **Workspace type:** Scroll down and and ensure a Fabric capacity is selected (this is where your workspace resources will be billed)
+   - **Semantic model storage format:** Keep as small
+   - Click **Apply**
+   - If prompted about a Power BI lecense select **Try free** and then **Got it**
    For more information, see [Create a Fabric workspace](https://learn.microsoft.com/en-us/fabric/get-started/create-workspaces)
 
 ### Step 3: Verify Workspace Creation
@@ -125,34 +127,32 @@ Microsoft Fabric requires a Personal Access Token (PAT) to authenticate with Git
 
 ### Step 2: Access Git Integration
 1. In the Workspace settings panel, scroll down to find **Git integration** or **Version control**
-2. Click on **Git integration** or **Configure Git**
+2. Click on **Git integration**
 
 ### Step 3: Connect to GitHub Repository
-1. Click **Connect** or **Setup Git integration**
-2. On the Git integration setup dialog, provide the following information:
-   - **GitHub organization/user:** Enter your GitHub username
-   - **Repository name:** Enter `GH-Git-integration-source`
-   - **Branch name:** Enter `main` (the source branch)
-   - **Authentication:** 
-     - Select **Personal Access Token** as the authentication method
-     - Paste the fine-grained PAT you created in Part 2
-   - Click **Next** or **Connect**
+1. In the **Connect Git provider and account** section select  **GitHub** and then clik the **Add account** button
+2. On the Add GitHub account dialog, provide the following information:
+   - **Display name:** Enter `fabricUserxxGH` (replace `xx` with your allocated number, e.g., `fabricUser01GH`)
+   - **Personal access token:** Paste the fine-grained PAT you created in Part 2
+   - **Repository URL:** URL to your GitHub repository (URL should be `https://github.com/[YourUsername]/GH-Git-integration-source`)
+3. Once details have been entered click  **Connect** 
+
 
 ### Step 4: Configure Branch and Folder Settings
-1. On the next screen, configure the following:
-   - **Create a new branch:** Select **Yes** or **Create new branch**
+1. In the Connect Git repository and branch section, configure the following:
+   - **Branch:** Select **+ New Branch**
    - **New branch name:** Enter `dev`
-   - **Base branch:** Select `main` (the new `dev` branch will be based on `main`)
+   - **Create from:** Select `main` (the new `dev` branch will be based on `main`) and ten click the Create button
    - **Folder name:** Enter `/workspace` (this is the workspace root folder in your repository - must match the folder structure in your GitHub repository)
-   - Click **Next** or **Continue**
+   - Click **Connect and sync**
 
    **Important:** The folder path you specify must exist in your GitHub repository. If it doesn't exist, the sync will fail
 
 ### Step 5: Sync from Git Repository
-1. When the confirmation window appears, you will see options for syncing:
+1. Wait for a few moments. If the workspace already contains items, you will see options for syncing:
    - Select **Sync from Git repository**
    - This will pull the contents from your GitHub repository into the Fabric workspace
-   - Click **Sync** or **Confirm**
+   - Click **OK**
 2. Wait for the sync to complete. This may take a few moments depending on the repository size and the number of items being imported
 3. You will see a progress indicator showing the sync status. Do not navigate away from this page during the sync
 
@@ -165,6 +165,7 @@ Microsoft Fabric requires a Personal Access Token (PAT) to authenticate with Git
    - Repository: `[YourUsername]/GH-Git-integration-source`
    - Branch: `dev`
    - Folder: `/workspace`
+5. Click the Source control button to explore
 4. Note the repository URL and branch name for future Git operations
 
    For more details on Git integration, see [Microsoft Fabric Git integration documentation](https://learn.microsoft.com/en-us/fabric/cicd/git-integration)
