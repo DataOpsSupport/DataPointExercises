@@ -1,3 +1,11 @@
+# Set up account in VSCode
+1. Open VSCode
+2. Open a Terminal
+3. Run these commands:
+   git config --global user.name "Your Name„
+   git config --global user.email "your.email@example.com"
+
+
 # Save your Power BI file in PBIP format
 
 Power BI Project (PBIP) format saves your report as a folder of plain text files instead of a single binary `.pbix` file. This makes it possible to track changes with Git.
