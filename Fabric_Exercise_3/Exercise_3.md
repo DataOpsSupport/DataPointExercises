@@ -132,7 +132,7 @@ jobs:
       
       - name: Set Workspace Permissions
         run: |
-          fab acl set ws1.Workspace -I 7598817c-573e-41c2-8359-094c935e307f -R contributor
+          fab acl set WS-fabricUser-xx-test.workspace -I 7598817c-573e-41c2-8359-094c935e307f -R contributor
       
       - name: Verify Workspace Creation
         run: |
