@@ -30,7 +30,7 @@ I attempted to fetch the README from `https://github.com/DataOpsSupport/fabric-c
   - Navigate to [https://app.powerbi.com](https://app.powerbi.com) and sign in
   - In the left navigation, click **Workspaces** → **New workspace**
   - **Name:** enter `fabric-cicd-local-FabricUser-xx` (replace `xx` with your allocated number)
-  - **Capacity:** select an available Fabric capacity (trial or assigned)
+  - **Capacity:** select an available **Fabric capacity** (trial or assigned)
   - **Description:** optional, e.g., `Fabric CI/CD lab workspace`
   - Click **Save** and verify the workspace appears in your workspace list
 
@@ -135,7 +135,7 @@ pip install -r requirements.txt
 
 Run each script locally and observe output/logs. IMPORTANT: do not set environment variables or other credentials unless the upstream README or the script's internal comments instruct you to — each script contains its own usage instructions and expected inputs.
 
-1. Open each Python script in an editor and read the top-of-file comments — follow the exact instructions present in the script (the scripts may request a config file, environment variables, or inline credentials).
+1. Open each Python script in an editor and read the top-of-file comments — follow the exact instructions present in the script (the scripts may request a config file, environment variables, or inline credentials). Make sure you enter in the correct details for your Fabric workspace!!!
 
 2. Then run:
 

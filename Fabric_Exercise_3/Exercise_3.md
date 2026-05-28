@@ -3,7 +3,7 @@
 ## Objective
 
 In this exercise, you will:
-- Clone the GitHub repository you created in Exercise 1
+- Clone the GitHub repository you created in Exercise 1 locally
 - Store service principal credentials as GitHub secrets
 - Create a GitHub Actions workflow file that provisions a new Microsoft Fabric workspace
 - Configure the workflow to automate workspace creation and permission assignment using Fabric CLI
@@ -24,7 +24,7 @@ In this exercise, you will:
 
 1. Open a terminal or PowerShell on your local machine.
 
-2. Clone the repository you created in Exercise 1:
+2. Clone the repository you created in Exercise 1. Either natively in VS or through command line:
 
 ```bash
 # Replace <YourUsername> with your actual GitHub username
