@@ -126,7 +126,7 @@ jobs:
       
       - name: Create Fabric Workspace
         run: |
-          fab workspace create 'WS-fabricUser-xx-test'
+          fab create WS-fabricUser-xx-test.workspace -P capacityname=Trial-20260503T145508Z-co7Z-B3zWk21IzySNnbZBA
         env:
           FABRIC_USER_ID: ${{ secrets.FABRIC_CLIENT_ID }}
       
