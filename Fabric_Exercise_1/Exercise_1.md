@@ -1,4 +1,4 @@
-# Exercise 2: Connecting Microsoft Fabric to GitHub with Git Integration
+# Exercise 1: Connecting Microsoft Fabric to GitHub with Git Integration
 
 ## Objective
 In this exercise, you will configure Microsoft Fabric Git integration to connect a Fabric workspace to a GitHub repository. You will learn how to import a repository, create authentication credentials, set up a Fabric workspace, and enable version control for your Fabric items.
