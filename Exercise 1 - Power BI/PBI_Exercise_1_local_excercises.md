@@ -70,25 +70,51 @@ In this exercise you add a new page to the report and build a visual on it.
    git commit -m "Added brand by margin visual on new page"
    ```
 
-# Exercise 3 — Format a visual and commit the change
+# Exercise 3 — Make multiple changes, commit only some
 
-In this exercise you make formatting changes to an existing visual and commit them.
+In this exercise you make several changes at once — both to the semantic model and to visuals — but you will only commit the visual changes. This shows how Git lets you choose exactly what goes into each commit.
 
-1. In Power BI Desktop, navigate to `Demo` page that contains the sales table visual.
-2. Select the table visual, then open the `Format` pane.
-3. Under `General` first select `Effects` and then `Background` turn it on, set a background color for the visual.
-4. Go to the `Margin` page and select the bar chart that shows margin by brand.
-5. In the `Format` pane, enable `Data labels`.
-6. Save the file: `Ctrl+S`. Power BI Desktop writes the changes to the PBIP folder files automatically.
-7. Switch to VS Code and stage and commit the change:
+**Make the changes in Power BI Desktop:**
 
-   **VS Code UI:** Go to the Source Control panel, review the changed files, click `+` to stage them, enter the message `Background color to table and added data label to brand by margin`, and click `Commit`.
+1. Open the `Data` or `Model` view, select the `Sales` table, and click `New measure`. Enter:
+   ```dax
+   Double Margin = [Margin] * 2
+   ```
+2. Navigate to the `Demo` page. Select the table visual, open the `Format` pane, go to `General` > `Effects` > `Background`, turn it on and set a background color.
+3. Navigate to the `Margin` page. Select the bar chart visual, open the `Format` pane, and enable `Data labels`.
+4. Save: `Ctrl+S`.
+
+**Check what changed in VS Code:**
+
+5. Switch to VS Code and open the Source Control panel. You will see changes across multiple files — both report files (visual formatting) and `Sales.tmdl` (the Double Margin measure).
+
+**Commit only the visualization changes:**
+
+6. Stage only the report-related files — **do not stage `Sales.tmdl`**:
+
+   **VS Code UI:** Click `+` next to each changed file individually, skipping `Sales.tmdl`. Enter the message `Background color to table and added data label to brand by margin` and click `Commit`.
 
    **Terminal:**
    ```bash
-   git add .
+   git add Contoso10k.Report/
    git commit -m "Background color to table and added data label to brand by margin"
    ```
+
+**Discard the Double Margin measure:**
+
+7. The `Sales.tmdl` change (Double Margin) is now left as an unstaged change. Discard it:
+
+   **VS Code UI:** In the Source Control panel under `Changes`, right-click `Sales.tmdl` and select `Discard Changes`.
+
+   **Terminal:**
+   ```bash
+   git checkout -- Contoso10k.SemanticModel/definition/tables/Sales.tmdl
+   ```
+
+**Verify the discard worked:**
+
+8. Close Power BI Desktop, then reopen it and load the report. Check that the `Double Margin` measure is no longer in the `Sales` table — it was never committed, so discarding the file restored it to its last committed state.
+
 
 # Exercise 4 — Add a new measure and commit
 
